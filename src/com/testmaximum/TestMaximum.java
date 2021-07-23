@@ -1,25 +1,37 @@
 package com.testmaximum;
 
 public class TestMaximum {
-public static void main(String[] args) {
-		
+	public static void main(String[] args) {
+
+		Integer number1 = 2;
+		Integer number2 = 3;
+		Integer number3 = 5;
+
+		Float num1 = 4.5f;
+		Float num2 = 1.1f;
+		Float num3 = 2.19f;
+
 		String name1 = "Apple";
 		String name2 = "Peach";
 		String name3 = "Banana";
-		String maximum = testMax(name1,name2,name3);
-		System.out.println("Maximum length of string is : "+maximum);
+
+		Integer maxInt = testMax(number1, number2, number3);
+		System.out.println("Maximum integer is : " + maxInt);
+		Float maxFloat = testMax(num1, num2, num3);
+		System.out.println("Maximum float is : " + maxFloat);
+		String maxString = testMax(name1, name2, name3);
+		System.out.println("Maximum String is : " + maxString);
+
 	}
 
-	public static String testMax(String name1, String name2, String name3) {
-		
-		String maximum= name1;
-		if(name2.compareTo(maximum) > 0 )
-		{
-			maximum = name2;
+	public static <T extends Comparable<T>> T testMax(T x, T y, T z) {
+
+		T maximum = x;
+		if (y.compareTo(maximum) > 0) {
+			maximum = y;
 		}
-		if(name3.compareTo(maximum) > 0 )
-		{
-			maximum = name3;
+		if (z.compareTo(maximum) > 0) {
+			maximum = z;
 		}
 		return maximum;
 	}
